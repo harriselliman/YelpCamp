@@ -7,9 +7,13 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true}
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
+
+// SCHEMA 
+
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
@@ -17,7 +21,8 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 // Campground.create(
 //     {
 //         name: "Granite Hill", 
-//         image: "https://pixabay.com/get/e83db40e28fd033ed1584d05fb1d4e97e07ee3d21cac104490f2c478a1e5b6bd_340.jpg"
+//         image: "https://pixabay.com/get/e83db40e28fd033ed1584d05fb1d4e97e07ee3d21cac104490f2c478a1e5b6bd_340.jpg",
+//         description: "This is a huge granite hill. No bathrooms. No water. Beautiful granite."
         
 //     }, function(err, campground){
 //         if(err) {
@@ -32,20 +37,27 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
+
+// INDEX - show all campgrounds
+
 app.get("/campgrounds", function(req, res){
     Campground.find({}, function(err, allCampgrounds){
         if(err){
             console.log(err);
         } else {
-            res.render("campgrounds", {campgrounds: allCampgrounds});
+            res.render("index", {campgrounds: allCampgrounds});
         }
     });
 });
 
+
+// CREATE - add new campground to database
+
 app.post("/campgrounds", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
-    var newCampground = {name: name, image: image};
+    var desc = req.body.description;
+    var newCampground = {name: name, image: image, description: desc};
     
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
@@ -56,14 +68,26 @@ app.post("/campgrounds", function(req, res){
     });
 });
 
+
+// NEW - show form to create new campground
+
 app.get("/campgrounds/new", function(req, res){
     res.render("new.ejs");
 });
 
 
+// SHOW - shows more info about one campground
 
-
-
+app.get("/campgrounds/:id", function(req, res){
+    
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("show", {campground: foundCampground});
+        }
+    });
+});
 
 
 
