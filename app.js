@@ -25,12 +25,12 @@ app.post("/campgrounds", function(req, res){
     var newCampground = {name: name, image: image};
     campgrounds.push(newCampground);
     
-    res.redirect("/campgrounds")
+    res.redirect("/campgrounds");
 });
 
 app.get("/campgrounds/new", function(req, res){
-    res.render("new.ejs")
-})
+    res.render("new.ejs");
+});
 
 
 
