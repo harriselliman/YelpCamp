@@ -6,17 +6,17 @@ var data = [
         {
             name: "Cloud's Rest", 
             image: "https://images.unsplash.com/photo-1526491109672-74740652b963?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
-            description: "description of the campground."
+            description: "description of the campground. Spicy jalapeno bacon ipsum dolor amet ut jerky tenderloin, cupidatat frankfurter esse ex duis beef consequat. Landjaeger bresaola shoulder in brisket nulla eu hamburger culpa boudin bacon short loin adipisicing. Magna aute et, swine doner flank sed jerky lorem dolor veniam ball tip consectetur hamburger voluptate. Commodo ham minim sirloin meatloaf quis, ad exercitation kielbasa fatback non burgdoggen. Drumstick chuck chicken ea, beef ribs shoulder ex. Tempor magna in, proident fugiat aliqua est tail pork loin cillum nulla. Filet mignon eu short loin proident, swine magna adipisicing shankle."
         },
         {
             name: "Desert Mesa", 
             image: "https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
-            description: "description of the campground."
+            description: "description of the campground. Spicy jalapeno bacon ipsum dolor amet ut jerky tenderloin, cupidatat frankfurter esse ex duis beef consequat. Landjaeger bresaola shoulder in brisket nulla eu hamburger culpa boudin bacon short loin adipisicing. Magna aute et, swine doner flank sed jerky lorem dolor veniam ball tip consectetur hamburger voluptate. Commodo ham minim sirloin meatloaf quis, ad exercitation kielbasa fatback non burgdoggen. Drumstick chuck chicken ea, beef ribs shoulder ex. Tempor magna in, proident fugiat aliqua est tail pork loin cillum nulla. Filet mignon eu short loin proident, swine magna adipisicing shankle."
         },
         {
             name: "Canyon Floor", 
             image: "https://images.unsplash.com/photo-1537565266759-34bbc16be345?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
-            description: "description of the campground."
+            description: "description of the campground. Spicy jalapeno bacon ipsum dolor amet ut jerky tenderloin, cupidatat frankfurter esse ex duis beef consequat. Landjaeger bresaola shoulder in brisket nulla eu hamburger culpa boudin bacon short loin adipisicing. Magna aute et, swine doner flank sed jerky lorem dolor veniam ball tip consectetur hamburger voluptate. Commodo ham minim sirloin meatloaf quis, ad exercitation kielbasa fatback non burgdoggen. Drumstick chuck chicken ea, beef ribs shoulder ex. Tempor magna in, proident fugiat aliqua est tail pork loin cillum nulla. Filet mignon eu short loin proident, swine magna adipisicing shankle."
         },
     ];
 
