@@ -28,11 +28,25 @@ function seedDB(){
         console.log("removed campgrounds");
         // Add campgrounds
         data.forEach(function(seed){
-            Campground.create(seed, function(err, data){
+            Campground.create(seed, function(err, campground){
                 if(err){
                     console.log(err)
                 } else {
                     console.log("added a campground");
+                    //create a comment
+                    Comment.create(
+                        {
+                            text: "this place is cool but i wish there was wifi",
+                            author: "camperdude99"
+                        }, function(err, comment){
+                            if(err){
+                                console.log(err);
+                            } else {
+                            campground.comments.push(comment);
+                            campground.save();
+                            console.log("created new comment");
+                            }
+                        });
                 }
             });
         });
