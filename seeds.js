@@ -17,7 +17,7 @@ var data = [
             image: "https://images.unsplash.com/photo-1537565266759-34bbc16be345?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
             description: "description of the campground."
         },
-    ]
+    ];
 
 function seedDB(){
     // Remove campgrounds
@@ -29,9 +29,15 @@ function seedDB(){
         }
     });
     // Add campgrounds
-    Campground.create({
-        
-    })
+    data.forEach(function(seed){
+        Campground.create(seed, function(err, data){
+            if(err){
+                console.log(err)
+            } else {
+                console.log("added a campground");
+            }
+        });
+    });
 }
 
 module.exports = seedDB;
