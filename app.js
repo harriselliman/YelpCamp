@@ -12,21 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 
-// Campground.create(
-//     {
-//         name: "Granite Hill", 
-//         image: "https://pixabay.com/get/e83db40e28fd033ed1584d05fb1d4e97e07ee3d21cac104490f2c478a1e5b6bd_340.jpg",
-//         description: "This is a huge granite hill. No bathrooms. No water. Beautiful granite."
-        
-//     }, function(err, campground){
-//         if(err) {
-//             console.log(err);
-//         } else {
-//             console.log("Newly created campground:");
-//             console.log(campground);
-//         }
-//     });
-
 app.get("/", function(req, res){
     res.render("landing");
 });
