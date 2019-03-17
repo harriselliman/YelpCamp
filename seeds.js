@@ -24,18 +24,17 @@ function seedDB(){
     Campground.remove({}, function(err){
         if(err){
             console.log(err);
-        } else {
-        console.log("removed campgrounds");
         }
-    });
-    // Add campgrounds
-    data.forEach(function(seed){
-        Campground.create(seed, function(err, data){
-            if(err){
-                console.log(err)
-            } else {
-                console.log("added a campground");
-            }
+        console.log("removed campgrounds");
+        // Add campgrounds
+        data.forEach(function(seed){
+            Campground.create(seed, function(err, data){
+                if(err){
+                    console.log(err)
+                } else {
+                    console.log("added a campground");
+                }
+            });
         });
     });
 }
