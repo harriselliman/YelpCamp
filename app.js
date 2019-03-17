@@ -6,10 +6,10 @@ var express     = require("express"),
     seedDB      = require("./seeds");
     
     
-seedDB();
 mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+seedDB();
 
 
 app.get("/", function(req, res){
@@ -68,6 +68,17 @@ app.get("/campgrounds/:id", function(req, res){
         }
     });
 });
+
+
+// ===============
+// comments routes
+// ===============
+
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    res.send("This will be the comment form");
+});
+
+
 
 
 
