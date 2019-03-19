@@ -131,6 +131,18 @@ app.post("/campgrounds/:id/comments", function(req, res){
 
 
 
+//=================
+// AUTH ROUTES
+//=================
+
+//register form
+
+app.get("/register", function(req, res){
+    res.render("register");
+});
+
+
+
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("YelpCamp Server has started.");
 })
