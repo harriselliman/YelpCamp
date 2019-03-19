@@ -160,9 +160,13 @@ app.get("/login", function(req, res){
     res.render("login");
 });
 
-app.post("/login", function(req, res){
-    res.send("login post route");
-})
+app.post("/login", passport.authenticate("local", 
+    {
+        successRedirect: "/campgrounds",
+        failureRedirect: "/login"
+    }
+    ), function(req, res){
+});
 
 
 
