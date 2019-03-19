@@ -16,6 +16,15 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 seedDB();
 
+// PASSPORT CONFIGURATION
+
+app.use(require("express-session")({
+    secret: "He's our number 4.",
+    resave: false,
+    saveUninitialized: false
+}));
+
+
 
 app.get("/", function(req, res){
     res.render("landing");
