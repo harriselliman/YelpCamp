@@ -141,6 +141,9 @@ app.get("/register", function(req, res){
     res.render("register");
 });
 
+app.post("/register", function(req, res){
+    res.send("register post route");
+});
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
