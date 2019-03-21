@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 
-app.get("/", function(req, res){
+router.get("/", function(req, res){
     res.render("landing");
 });
 
@@ -12,11 +12,11 @@ app.get("/", function(req, res){
 
 //register form
 
-app.get("/register", function(req, res){
+router.get("/register", function(req, res){
     res.render("register");
 });
 
-app.post("/register", function(req, res){
+router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
@@ -31,11 +31,11 @@ app.post("/register", function(req, res){
 
 // show login form
 
-app.get("/login", function(req, res){
+router.get("/login", function(req, res){
     res.render("login");
 });
 
-app.post("/login", passport.authenticate("local", 
+router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/campgrounds",
         failureRedirect: "/login"
@@ -45,7 +45,7 @@ app.post("/login", passport.authenticate("local",
 
 //logout route
 
-app.get("/logout", function(req, res){
+router.get("/logout", function(req, res){
     req.logout();
     res.redirect("/campgrounds");
 });
