@@ -11,7 +11,7 @@ var express         = require("express"),
     
 var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds"),
-    indexRoutes         = require("./routes/index")
+    indexRoutes         = require("./routes/index");
     
     
 mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true});
@@ -38,3 +38,8 @@ app.use(function(req, res, next){
    next();
 });
 
+
+
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("YelpCamp Server has started.");
+})
