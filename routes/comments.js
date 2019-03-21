@@ -1,8 +1,11 @@
+var express = require("express");
+var router = express.Router();
+
 // ===============
 // comments routes
 // ===============
 
-app.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res){
+router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res){
     //find campground by id
     Campground.findById(req.params.id, function(err, campground){
         if(err){
@@ -13,7 +16,7 @@ app.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res){
     });
 });
 
-app.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
+router.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
     // lookup comment using id
     Campground.findById(req.params.id, function(err, campground){
         if(err){
@@ -37,3 +40,5 @@ app.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
     // connect new comment to campground
     // redirect campground show page
 });
+
+module.exports = router;
