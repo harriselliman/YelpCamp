@@ -43,4 +43,12 @@ router.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
     // redirect campground show page
 });
 
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
+
+
 module.exports = router;
