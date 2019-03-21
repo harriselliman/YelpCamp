@@ -17,7 +17,7 @@ router.get("/", function(req, res){
 
 // CREATE - add new campground to database
 
-router.post("/", function(req, res){
+router.post("/", isLoggedIn, function(req, res){
     var name = req.body.name;
     var image = req.body.image;
     var desc = req.body.description;
