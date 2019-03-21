@@ -40,7 +40,7 @@ app.use(function(req, res, next){
 
 app.use(indexRoutes);
 app.use(commentRoutes);
-app.use(campgroundRoutes);
+app.use("/campgrounds", campgroundRoutes);
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
