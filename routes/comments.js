@@ -48,7 +48,7 @@ router.post("/", isLoggedIn, function(req, res){
 
 //edit
 
-router.get("/:commentsid/edit", function(req, res){
+router.get("/:comment_id/edit", function(req, res){
     Comment.findById(req.params.comment_id, function(err, foundComment){
         if(err){
             res.redirect("back");
