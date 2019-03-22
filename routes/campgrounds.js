@@ -64,11 +64,16 @@ router.get("/:id", function(req, res){
 router.get("/:id/edit", function(req, res){
     //is user logged in
     if(req.isAuthenticated()){
+        //does user own campground
         Campground.findById(req.params.id, function(err, foundCampground){
             if(err){
                 res.redirect("/campgrounds");
             } else {
-                res.render("campgrounds/edit", {campground: foundCampground});
+                if(foundCampground.author.id.equals(req.user._id)){
+                    res.render("campgrounds/edit", {campground: foundCampground});
+                } else {
+                    res.send("you dont have permission to do that");
+                }
             }
         });
     } else {
