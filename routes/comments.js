@@ -49,7 +49,7 @@ router.post("/", isLoggedIn, function(req, res){
 //edit
 
 router.get("/:commentsid/edit", function(req, res){
-    res.render("comments/edit");
+    res.render("comments/edit", {campground_id: req.params.id});
 });
 
 
