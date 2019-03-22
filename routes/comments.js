@@ -46,7 +46,7 @@ router.post("/", isLoggedIn, function(req, res){
     });
 });
 
-//edit
+//comments edit
 
 router.get("/:comment_id/edit", function(req, res){
     Comment.findById(req.params.comment_id, function(err, foundComment){
@@ -57,6 +57,12 @@ router.get("/:comment_id/edit", function(req, res){
         }
     });
 });
+
+//comments update
+
+router.put("/:comment_id", function(req, res){
+    res.send("comment update route");
+})
 
 
 // middleware
