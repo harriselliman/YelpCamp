@@ -69,7 +69,7 @@ router.get("/:id/edit", checkCampgroundOwnership,function(req, res){
 
 //update campground route
 
-router.put("/:id", function(req, res){
+router.put("/:id", checkCampgroundOwnership, function(req, res){
    //find and update correct campground
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
         if(err){
