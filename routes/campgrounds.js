@@ -78,10 +78,10 @@ router.put("/:id", function(req, res){
         if(err){
            res.redirec("/campgrounds");
         } else {
+            //redirect to show page
             res.redirect("/campgrounds/" + req.params.id);
         }
     });
-   //redirect to show page
 });
 
 //update campground route
