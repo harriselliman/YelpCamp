@@ -133,8 +133,7 @@ function checkCampgroundOwnership(req, res, next){
             }
         });
     } else {
-        console.log("you need to be logged in to do that");
-        res.send("you need to be logged in to do that");
+        res.redirect("back");
     }
 }
 
