@@ -123,7 +123,7 @@ function checkCampgroundOwnership(req, res, next){
         //does user own campground
         Campground.findById(req.params.id, function(err, foundCampground){
             if(err){
-                res.redirect("/campgrounds");
+                res.redirect("back");
             } else {
                 if(foundCampground.author.id.equals(req.user._id)){
                     res.render("campgrounds/edit", {campground: foundCampground});
