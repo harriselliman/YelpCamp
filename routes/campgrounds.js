@@ -71,6 +71,7 @@ router.get("/:id/edit", function(req, res){
     });
 });
 
+//update campground route
 
 router.put("/:id", function(req, res){
    //find and update correct campground
@@ -84,7 +85,6 @@ router.put("/:id", function(req, res){
     });
 });
 
-//update campground route
 
 //middleware 
 
