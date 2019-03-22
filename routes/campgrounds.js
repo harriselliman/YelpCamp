@@ -85,6 +85,12 @@ router.put("/:id", function(req, res){
     });
 });
 
+//destroy campground route
+
+router.delete("/:id", function(req, res){
+    res.send("You are trying to delete something");
+});
+
 
 //middleware 
 
