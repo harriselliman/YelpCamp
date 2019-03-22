@@ -49,7 +49,7 @@ router.post("/", isLoggedIn, function(req, res){
 //edit
 
 router.get("/:commentsid/edit", function(req, res){
-    res.send("edit route for comment");
+    res.render("comments/edit");
 });
 
 
