@@ -93,12 +93,12 @@ function isLoggedIn(req, res, next){
 
 function checkCommentOwnership(req, res, next){
     if(req.isAuthenticated()){
-        //does user own campground
-        Campground.findById(req.params.id, function(err, foundCampground){
+        //does user own comment
+        Comment.findById(req.params.comment_id, function(err, foundComment){
             if(err){
                 res.redirect("back");
             } else {
-                if(foundCampground.author.id.equals(req.user._id)){
+                if(foundComment.author.id.equals(req.user._id)){
                     next();
                 } else {
                     res.redirect("back");
