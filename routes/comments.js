@@ -70,6 +70,11 @@ router.put("/:comment_id", function(req, res){
     });
 });
 
+// comment destroy
+
+router.delete("/:comment_id", function(req, res){
+    res.send("destroy comment route");
+});
 
 // middleware
 
