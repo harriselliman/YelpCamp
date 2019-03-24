@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var passport = require("passport");
-var User = require("../models/user")
+var User = require("../models/user");
 
 
 // root route
@@ -54,7 +54,7 @@ router.post("/login", passport.authenticate("local",
 
 router.get("/logout", function(req, res){
     req.logout();
-    req.flash("error", "You have been logged out.")
+    req.flash("error", "You have been logged out.");
     res.redirect("/campgrounds");
 });
 
