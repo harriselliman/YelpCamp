@@ -21,6 +21,9 @@ middlewareObj.checkUserOwnership = function(req, res, next){
                 }
             }
         });
+    } else {
+        req.flash("error", "You need to be logged in to do that.");
+        res.redirect("/campgrounds");
     }
 };
 
@@ -30,7 +33,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
         Campground.findById(req.params.id, function(err, foundCampground){
             if(err || !foundCampground){
                 req.flash("error", "Campground not found");
-                res.redirect("back");
+                res.redirect("/campgrounds");
             } else {
                 if(foundCampground.author.id.equals(req.user._id)){
                     next();

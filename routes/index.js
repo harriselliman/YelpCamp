@@ -72,7 +72,7 @@ router.get("/logout", function(req, res){
 
 router.get("/users/:id", function(req, res){
     User.findById(req.params.id, function(err, foundUser){
-        if(err){
+        if(err || !foundUser){
             req.flash("error", "Something went wrong.");
             res.redirect("/");
         }
