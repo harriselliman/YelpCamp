@@ -74,10 +74,10 @@ router.get("/users/:id", function(req, res){
     User.findById(req.params.id, function(err, foundUser){
         if(err || !foundUser){
             req.flash("error", "Something went wrong.");
-            res.redirect("/");
+            res.redirect("/campgrounds");
         }
         Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
-            if(err){
+            if(err || !foundUser){
                 req.flash("error", "Something went wrong.");
                 res.redirect("/");
             }
