@@ -11,6 +11,13 @@ middlewareObj.checkUserOwnership = function(req, res, next){
             if(err || !foundUser){
                 req.flash("error", "User does not exist.");
                 res.redirect("/campgrounds");
+            } else {
+                if(foundUser.id.equals(req.user._id)){
+                    next();
+                } else {
+                    req.flash("error", "You don't have permission to do that.");
+                    res.redirect("back");
+                }
             }
         });
     }
@@ -27,7 +34,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
                 if(foundCampground.author.id.equals(req.user._id)){
                     next();
                 } else {
-                    req.flash("error", "You don't have permission to do that.")
+                    req.flash("error", "You don't have permission to do that.");
                     res.redirect("back");
                 }
             }
