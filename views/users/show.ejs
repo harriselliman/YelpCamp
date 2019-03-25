@@ -19,10 +19,11 @@
                 <% }) %>
             </ul>
         </div>
-        <a href="/user/<%= user.id %>"></a>
-        <% if(currentUser && user._id.equals(currentUser._id)){ %>
-            <a class="btn btn-xs btn-warning" href="/users/<%= user._id %>/edit">Edit Profile</a>
-        <% } %>
+        <div class="container">
+            <% if(currentUser && user._id.equals(currentUser._id)){ %>
+                <a class="btn btn-xs btn-warning" href="/users/<%= user._id %>/edit">Edit Profile</a>
+            <% } %>
+        </div>
     </div>
 </div>
 
