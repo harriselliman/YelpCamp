@@ -19,7 +19,11 @@
                     <h4><a><%= campground.name %></a></h4>
                     <p><%= campground.description %></p>
                     <p>
-                        <em>Submitted by <strong><%= campground.author.username %></strong></em>
+                        <em>Submitted by <strong>
+                            <a href="/users/<%= campground.author.id %>">
+                                <%= campground.author.username %>
+                            </a>
+                        </strong></em>
                     </p>
                     
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
