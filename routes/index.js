@@ -95,7 +95,15 @@ router.get("/users/:id/edit", function(req, res){
 //edit user post route
 
 router.post("/users/:id", function(req,res){
-    res.send("post route")
+    User.findByIdAndUpdate(req.params.id, function(err, updatedUser){
+        if(err){
+            req.flash("error", "Error.");
+            res.redirect("/campgrounds");
+        } else {
+            req.flash("success", "Profile update.");
+            res.redirect("/users/" + req.params.id);
+        }
+    });
 });
 
 
