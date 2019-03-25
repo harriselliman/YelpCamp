@@ -75,14 +75,15 @@ router.get("/users/:id", function(req, res){
         if(err || !foundUser){
             req.flash("error", "Something went wrong.");
             res.redirect("/campgrounds");
+        } else {
+            Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
+                if(err || !foundUser){
+                    req.flash("error", "Something went wrong.");
+                    res.redirect("/");
+                }
+                res.render("users/show", {user: foundUser, campgrounds: campgrounds});
+            });
         }
-        Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
-            if(err){
-                req.flash("error", "Something went wrong.");
-                res.redirect("/");
-            }
-            res.render("users/show", {user: foundUser, campgrounds: campgrounds});
-        });
     });
 });
 
