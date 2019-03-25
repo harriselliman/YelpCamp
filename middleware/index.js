@@ -5,6 +5,17 @@ var Comment = require("../models/comment");
 
 var middlewareObj = {};
 
+middlewareObj.checkUserOwnership = function(req, res, next){
+    if(req.isAuthenticated()){
+        User.findById(req.params.id, function(err, foundUser){
+            if(err || !foundUser){
+                req.flash("error", "User does not exist.");
+                res.redirect("/campgrounds");
+            }
+        });
+    }
+};
+
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
     if(req.isAuthenticated()){
         //does user own campground
