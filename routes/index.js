@@ -92,6 +92,12 @@ router.get("/users/:id/edit", function(req, res){
     });
 });
 
+//edit user post route
+
+router.post("/users/:id", function(req,res){
+    res.send("post route")
+});
+
 
 module.exports = router;
 
