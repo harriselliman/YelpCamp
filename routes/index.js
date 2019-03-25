@@ -88,7 +88,7 @@ router.get("/users/:id", function(req, res){
 
 //edit user profile
 
-router.get("/users/:id/edit", function(req, res){
+router.get("/users/:id/edit", middleware.checkUserOwnership, function(req, res){
     User.findById(req.params.id, function(err, foundUser){
         res.render("users/edit", {user: foundUser});
     });
@@ -96,7 +96,7 @@ router.get("/users/:id/edit", function(req, res){
 
 //update user
 
-router.put("/users/:id", function(req,res){
+router.put("/users/:id", middleware.checkUserOwnership, function(req,res){
     User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updatedUser){
         if(err){
             req.flash("error", "Error.");

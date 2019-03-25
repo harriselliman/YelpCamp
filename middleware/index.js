@@ -13,11 +13,11 @@ middlewareObj.checkUserOwnership = function(req, res, next){
                 req.flash("error", "User does not exist.");
                 res.redirect("/campgrounds");
             } else {
-                if(foundUser.id.equals(req.user._id)){
+                if(foundUser._id.equals(req.user._id)){
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that.");
-                    res.redirect("back");
+                    res.redirect("/campgrounds");
                 }
             }
         });
