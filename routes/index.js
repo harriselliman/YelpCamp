@@ -87,8 +87,10 @@ router.get("/users/:id", function(req, res){
 //edit user profile
 
 router.get("/users/:id/edit", function(req, res){
-    res.send("edit user route")
-})
+    User.findById(req.params.id, function(err, foundUser){
+        res.render("users/edit", {user: foundUser});
+    });
+});
 
 
 module.exports = router;
