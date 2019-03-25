@@ -92,10 +92,10 @@ router.get("/users/:id/edit", function(req, res){
     });
 });
 
-//edit user post route
+//update user
 
-router.post("/users/:id", function(req,res){
-    User.findByIdAndUpdate(req.params.id, function(err, updatedUser){
+router.put("/users/:id", function(req,res){
+    User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updatedUser){
         if(err){
             req.flash("error", "Error.");
             res.redirect("/campgrounds");
