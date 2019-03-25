@@ -76,7 +76,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
    //find and update correct campground
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
         if(err){
-           res.redirec("/campgrounds");
+           res.redirect("/campgrounds");
         } else {
             //redirect to show page
             res.redirect("/campgrounds/" + req.params.id);
