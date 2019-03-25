@@ -84,6 +84,11 @@ router.get("/users/:id", function(req, res){
     });
 });
 
+//edit user profile
+
+router.get("/users/:id/edit", function(req, res){
+    res.send("edit user route")
+})
 
 
 module.exports = router;
