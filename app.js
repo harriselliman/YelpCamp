@@ -19,7 +19,7 @@ var commentRoutes       = require("./routes/comments"),
     
     
 // mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true}); // local DB
-mongoose.connect("mongodb+srv://harriselliman:mypassword123@cluster0-l9szf.mongodb.net/yelp_camp?retryWrites=true", { useNewUrlParser: true}) //MLab hosted DB
+mongoose.connect("mongodb+srv://harriselliman:mypassword123@cluster0-l9szf.mongodb.net/yelp_camp?retryWrites=true", { useNewUrlParser: true}); //MLab hosted DB
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
